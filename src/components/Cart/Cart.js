@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import SingleProduct from "../SingleProduct/SingleProduct";
+import { Cart } from "../../Context/Context";
+const _Cart = ({}) => {
+	const [Total, setTotal] = useState();
+	const { cart, setCart } = useContext(Cart);
+	useEffect(() => {
+		setTotal(cart.reduce((acc, curr) => acc + Number(curr.price), 0));
+	}, [cart]);
 
-const Cart = () => {
 	return (
 		<div>
 			<span style={{ fontSize: 30 }}>MY CARTLIST📃</span>
 			<br />
 			<br />
-			<span style={{ fontSize: 40 }}>TOTAL BILL💳💷:RS. 1000.00 </span>
+			<span style={{ fontSize: 40 }}>TOTAL BILL💳💷:RS.{Total} </span>
 
-			<div className="productContainer">{}</div>
+			<div className="productContainer">
+				{cart.map((product) => {
+					return <SingleProduct prod={product} cart={cart} setCart={setCart} />;
+				})}
+			</div>
 		</div>
 	);
 };
 
-export default Cart;
+export default _Cart;
