@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import "../style.css";
-const SingleProduct = ({ prod, cart, setCart }) => {
+import { Cart } from "../../Context/Context";
+const SingleProduct = ({ prod }) => {
+	const { cart, setCart } = useContext(Cart);
+
 	return (
 		<div className="products">
 			<img src={prod.image} alt={prod.name} />
@@ -10,7 +13,7 @@ const SingleProduct = ({ prod, cart, setCart }) => {
 			</div>
 			{cart.includes(prod) ? (
 				<button
-					className="add"
+					className="add➕"
 					onClick={() => {
 						setCart(cart.filter((c) => c.id !== prod.id));
 					}}

@@ -5,13 +5,34 @@ import "../style.css";
 const Header = () => {
 	return (
 		<>
-			<span className="header">Context-API✨✨</span>
+			<span
+				className="header"
+				style={{
+					backgroundColor: "#240046",
+					fontSize: "2rem",
+					color: "#fdfffc",
+					padding: "1rem",
+				}}
+			>
+				Context-API-Shopping-Cart
+			</span>
+			<hr />
 			<ul className="nav">
 				<li>
-					<Link to="/">Home Page🐱‍🏍</Link>
+					<Link
+						to="/"
+						style={{ textDecoration: "none", fontSize: "2rem", color: "white" }}
+					>
+						Home Page🐱‍🏍
+					</Link>
 				</li>
 				<li>
-					<Link to="/cart">Cart Page 🛒</Link>
+					<Link
+						to="/cart"
+						style={{ textDecoration: "none", fontSize: "2rem", color: "white" }}
+					>
+						Cart Page 🛒
+					</Link>
 				</li>
 			</ul>
 		</>
